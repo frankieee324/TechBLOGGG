@@ -1,0 +1,36 @@
+
+<div class="container-md">
+     <div class="card">
+          <div class="card-header text-bold">
+               <span class="text-align-left">{{filteredBlogData.blog_title}}</span> 
+               <span class="text-align-right">Posted by {{filteredBlogData.user.first_name}} {{filteredBlogData.user.last_name}} on {{ formatDate filteredBlogData.createdAt }}</span>
+          </div>
+          <div class="card-body">
+               <p class="card-text">{{filteredBlogData.blog_post}}</p>    
+          </div>
+          <hr/>
+          
+          <div class="card-body">
+          {{#each filteredBlogData.blog_comments as |comment|}}
+               <span class="text-align-left text-bold">{{comment.user.first_name}} commented on {{formatDate comment.createdAt}}: </span> 
+               <p class="card-text">{{comment.comment_post}}</p>
+          {{/each}}
+     
+               <span class="blogButtonSection showButtons">
+                    <span class="text-align-left">
+                         <button type="button" class="blogcommentbtn buttonIcon"><i class="material-icons iconColor">comment</i></button>
+                    </span>
+               </span>
+
+               <div class="card-body blogCommentSection hideComment">
+                    <div class="card-body">
+                         <textarea class="form-control blogComment" rows="2" placeholder="Enter the comment here"></textarea>
+                    </div>
+                    <div class="card-body blogIdClass" blogid={{filteredBlogData.blog_id}}>
+                         <button type="submit" class="btn btn-primary submitBlogCommentBtn">Save Comment</button>
+                         <button type="button" class="btn btn-primary cancelCommentBtn">Cancel</button>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>

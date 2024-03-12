@@ -1,0 +1,46 @@
+<div class="container-sm">
+     <div class="row align-items-start">
+          <div class="col-4 text-bold text-align-left">
+               Hello {{sessionUserName}}, 
+          </div>
+          <div class="col-4">
+          </div>
+          <div class="col-4 text-align-right">
+               <button type="button" class="btn btn-primary text-align-right text-bold" onclick="window.location.href='/blog'">Create Blog</button>
+          </div>
+     </div>
+</div>
+<br/><br/>
+{{#each  blogData as |blog|}}
+<div class="container-sm">
+     <div class="card box-border">
+          <h5 class="card-header text-bold"> 
+               <span class="text-align-left">{{{blog.blog_title}}}</span> 
+               <span class="text-align-right">Posted by {{{blog.user.first_name}}} {{{blog.user.last_name}}} on {{ formatDate blog.createdAt }}</span>
+          </h5>
+          <div class="card-body">
+               <p class="card-text text-align-left">{{{blog.blog_post}}}</p>
+          </div>
+          <div class="card-body text-align-left buttonSection showButtons">
+               <p class="material-icons id" id={{{blog.blog_id}}}>
+                    <button type="button" class="dasheditbtn buttonIcon"><i class="material-icons iconColor">edit</i></button>
+                    <button type="button" class="dashcommentbtn buttonIcon"><i class="material-icons iconColor">comment</i></button>
+                    <button type="button" class="dashdeletebtn buttonIcon"><i class="material-icons iconColor">delete</i></button>
+               </p>
+          </div> 
+          <div class="card-body commentSection hideComment">
+               <div class="card-body">
+                    <textarea class="form-control blogComment" rows="2" placeholder="Enter the comment here"></textarea>
+               </div>
+                <div class="card-body" blogid={{blog.blog_id}}>
+                    <button type="submit" class="btn btn-primary submitCommentBtn">Save Comment</button>
+                    <button type="button" class="btn btn-primary cancelDashCommentBtn">Cancel</button>
+               </div>
+          </div>
+     </div>
+</div>
+<br/>
+{{/each}}
+
+
+

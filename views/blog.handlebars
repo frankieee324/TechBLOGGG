@@ -1,0 +1,25 @@
+<div class="container-md">
+     <form>
+          <div class="mb-3 col-6">
+               <label for="blogTitle" class="form-label">Title</label>
+               {{#if filteredBlogData.blog_title}}
+               <input type="text" class="form-control" id="blogTitle" value={{filteredBlogData.blog_title}}>
+               {{else}}
+               <input type="text" class="form-control" id="blogTitle" placeholder="Enter the post title">
+               {{/if}}
+          </div>
+          <div class="mb-3 col-6">
+               <label for="blogPost" class="form-label">Blog Post</label>
+               {{#if filteredBlogData.blog_post}}
+               <textarea class="form-control" id="blogPost" rows="3" placeholder="Enter the post here">{{filteredBlogData.blog_post}}</textarea>
+               {{else}}
+               <textarea class="form-control" id="blogPost" rows="3" placeholder="Enter the post here"></textarea>
+               {{/if}}
+          </div>
+          <div class="mb-3 col-6" blogId={{filteredBlogData.blog_id}}>
+               <button type="submit" class="btn btn-primary" id="submitPostBtn">Submit Post</button>
+               <button type="button" class="btn btn-primary" id="cancelPostBtn">Cancel</button>
+          </div>
+     </form>
+</div>
+

@@ -1,0 +1,22 @@
+[
+    {
+         "user_id":1,
+         "blog_title": "Title 1",
+         "blog_post": "This is a post for testing"
+    },
+    {
+         "user_id":1,
+         "blog_title": "Title 2",
+         "blog_post": "This is second posting for testing"
+    },
+    {
+         "user_id":2,
+         "blog_title": "Title 3",
+         "blog_post": "This is for a different user"
+    },
+    {
+         "user_id":2,
+         "blog_title": "Title 4",
+         "blog_post": "This is for a second user second posting"
+    }
+]

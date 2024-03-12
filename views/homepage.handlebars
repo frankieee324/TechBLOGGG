@@ -1,0 +1,39 @@
+{{#each  blogData as |blog|}}
+<div class="container-sm">
+     <div class="card box-border">
+          <h5 class="card-header text-bold"> 
+               <span class="text-align-left">{{{blog.blog_title}}}</span> 
+               <span class="text-align-right">Posted by {{{blog.user.first_name}}} {{{blog.user.last_name}}} on {{ formatDate blog.createdAt }}</span>
+          </h5>
+          <div class="card-body">
+               <p class="card-text">{{{blog.blog_post}}}</p>
+          </div>
+          <div class="card-body">
+               <span class="text-align-left" blogid={{blog.blog_id}}>
+                    <button type="button" class="homecommentbtn buttonIcon"><i class="material-icons iconColor">comment</i></button>
+               </span>
+          </div> 
+          <div class="card-body commentSection hideComment">
+               <div class="card-body">
+                    <textarea class="form-control blogComment" rows="2" placeholder="Enter the comment here"></textarea>
+               </div>
+                <div class="card-body" >
+                    <button type="submit" class="btn btn-primary submitCommentBtn">Save Comment</button>
+               </div>
+          </div>
+     </div>
+</div>
+<br/>
+{{/each}}
+<div class="container-sm">
+     <div class="text-align-center">
+          <span class="text-align-center">
+               {{#if loggedIn}}
+               <button type="button" class="btn btn-primary text-align-center" onclick="window.location.href='/blog'">Create a Post</button>
+               {{else}}
+               <button type="button" class="btn btn-primary text-align-center" onclick="window.location.href='/login'">Create a Post</button>
+               {{/if}}
+          </span>
+     </div>
+</div>
+
